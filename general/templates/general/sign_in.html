@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include 'general/partials/head.html'  %}
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{% static 'general/img/logo.png' %}" alt="">
+        <h1>Logis</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}" class="active">Home</a></li>
+          <li><a href="{% url 'about_us' %}">About</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'price' %}">Pricing</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li><a class="get-a-quote" href="{% url 'quote' %}">Get a Quote</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center" style="background-image: url('{% static 'general/img/page-header.jpg' %}');">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>Sign In</h2>
+              {% comment %} <p>Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+          <div class="col-lg-8">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>username: <input type="text" name="username" required></p>
+                <p>password: <input type="password" name="password" required></p>
+                <input type="submit" value="login">
+        
+                    </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+    </section><!-- End Contact Section -->
+    <h2>No Account yet?</h2>
+    <h3><a href="{% url 'sign_up' %}">Click here</a></h3>
+  </main><!-- End #main -->
+
+  {% include 'general/partials/footer.html' %}
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  {% include 'general/partials/script.html'  %}
+
+</body>
+
+</html>
