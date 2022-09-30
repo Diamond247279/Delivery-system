@@ -57,7 +57,7 @@ def sign_up(request):
         if form.is_valid():
             form.save()
             messages.success(request,'registration successful')
-            return redirect('sign_in')
+            return redirect(reverse('sign_in'))
         else:
             messages.error(request,'unsuccessful')	    
     return render(request, 'general/sign_up.html',context)
